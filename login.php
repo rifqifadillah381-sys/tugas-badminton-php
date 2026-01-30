@@ -2,7 +2,7 @@
 // Memulai session agar sistem tahu siapa yang login
 session_start();
 
-// Set variable username dan password dummy (sesuai permintaan Anda)
+
 $username_dummy = "admin";
 $password_dummy = "123456";
 
@@ -13,12 +13,12 @@ $password_dummy = "april";
 
 $error_php = "";
 
-// Cek apakah form sudah dikirim (method POST)
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userInput = $_POST['user'];
     $passInput = $_POST['pass'];
 
-    // Validasi apakah input sama dengan data dummy
+   
     if ($userInput === $username_dummy && $passInput === $password_dummy) {
         // Simpan status login di session
         $_SESSION['username'] = $userInput;
@@ -26,9 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Alihkan ke halaman admin
         header("location:admin.php"); 
-        exit; // Sangat penting agar kode di bawahnya tidak terbaca
+        exit; 
     } else {
-        // Jika salah, simpan pesan error untuk ditampilkan
+       
         $error_php = "Username atau Password Salah!";
     }
 }
@@ -122,4 +122,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
