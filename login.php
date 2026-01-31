@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-// Data login yang disuruh (Dummy)
-// Kita buat agar bisa mengenali dua-duanya
 $user_admin = "admin";
 $pass_admin = "123456";
 
@@ -121,3 +119,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
