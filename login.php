@@ -1,39 +1,36 @@
 <?php
-// Memulai session agar sistem tahu siapa yang login
 session_start();
 
+// Data login yang disuruh (Dummy)
+// Kita buat agar bisa mengenali dua-duanya
+$user_admin = "admin";
+$pass_admin = "123456";
 
-$username_dummy = "admin";
-$password_dummy = "123456";
+$user_april = "april";
+$pass_april = "april";
 
 $error_php = "";
-
-$username_dummy = "april";
-$password_dummy = "april";
-
-$error_php = "";
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userInput = $_POST['user'];
     $passInput = $_POST['pass'];
 
-   
-    if ($userInput === $username_dummy && $passInput === $password_dummy) {
+    // Cek apakah yang diketik itu admin atau april
+    if (($userInput === $user_admin && $passInput === $pass_admin) || 
+        ($userInput === $user_april && $passInput === $pass_april)) {
+        
         // Simpan status login di session
         $_SESSION['username'] = $userInput;
-        $_SESSION['status'] = "login"; // Tambahkan status login sesuai admin.php Anda sebelumnya
+        $_SESSION['status'] = "login"; 
         
         // Alihkan ke halaman admin
         header("location:admin.php"); 
         exit; 
     } else {
-       
         $error_php = "Username atau Password Salah!";
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -49,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
+    
     <div class="container mt-5 pt-5">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-8 col-md-5">
@@ -56,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="text-center mb-3">
                         <i class="bi bi-person-circle h1 display-4 text-danger"></i>
                         <h3 class="fw-bold mt-2">Login Admin</h3>
-                        <p welcome to my daily Journal</p>
+                        <p> welcome to my daily Journal </p>
                         <hr />
                     </div>
 
@@ -122,5 +120,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
