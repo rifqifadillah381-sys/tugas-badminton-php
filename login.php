@@ -13,15 +13,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userInput = $_POST['user'];
     $passInput = $_POST['pass'];
 
-    // Cek apakah yang diketik itu admin atau april
+
     if (($userInput === $user_admin && $passInput === $pass_admin) || 
         ($userInput === $user_april && $passInput === $pass_april)) {
         
-        // Simpan status login di session
         $_SESSION['username'] = $userInput;
         $_SESSION['status'] = "login"; 
         
-        // Alihkan ke halaman admin
+
         header("location:admin.php"); 
         exit; 
     } else {
@@ -119,4 +118,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 
